@@ -1,0 +1,94 @@
+body {
+    font-family: 'Verdana', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar-brand i {
+    margin-right: 10px;
+}
+
+
+.hero-section {
+    background: linear-gradient(to right, #0f6f59, #1c8c7a);
+    color: white;
+    padding: 100px 0;
+    margin-top: 56px; 
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.hero-section p {
+    font-size: 1.25rem;
+    margin-bottom: 30px;
+}
+
+.hero-section .btn {
+    font-size: 1.1rem;
+    padding: 10px 30px;
+}
+
+.projects-section {
+    background-color: white;
+    padding: 60px 0;
+}
+
+.projects-section h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+.card {
+    border: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.btn-outline-primary {
+    border-color: #0f6f59;
+    color: #0f6f59;
+}
+
+.btn-outline-primary:hover {
+    background-color: #0f6f59;
+    color: white;
+}
+
+footer {
+    background-color: #343a40;
+    padding: 20px 0;
+}
+
+footer p {
+    margin: 0;
+    font-size: 1rem;
+}
