@@ -1,0 +1,29 @@
+body {
+    background-color: #f0f2f5;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-top: 56px; /* espacio para navbar */
+  }
+  
+  .sidebar {
+    width: 220px;
+    min-height: 100vh;
+    position: fixed;
+    top: 56px;
+    left: 0;
+    z-index: 1;
+  }
+  
+  .sidebar .nav-link {
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .sidebar .nav-link:hover {
+    background-color: #495057;
+    border-radius: 4px;
+  }
+  
+  .content {
+    margin-left: 240px;
+  }
+  

@@ -75,7 +75,7 @@ function loginUser(username, password) {
             console.log("Respuesta del servidor:", response);
 
             if (response.status === "success") {
-                window.location.href = "views/home.html"; 
+                window.location.href = "views/home.php"; 
             } else {
                 alert("Error: " + response.message);
                 $('input[name="username"]').val("");
