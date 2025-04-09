@@ -92,3 +92,13 @@ footer p {
     margin: 0;
     font-size: 1rem;
 }
+
+.alert-fixed {
+    position: fixed;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1050;
+    width: 90%;
+    max-width: 600px;
+}

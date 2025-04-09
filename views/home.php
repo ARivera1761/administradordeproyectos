@@ -31,17 +31,6 @@ while ($archivo = $archivosStmt->fetch(PDO::FETCH_ASSOC)) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/stylehome.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        .alert-fixed {
-            position: fixed;
-            top: 80px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1050;
-            width: 90%;
-            max-width: 600px;
-        }
-    </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
