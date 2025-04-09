@@ -5,39 +5,38 @@
   <title>Crear Proyecto</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="../css/stylecrearp.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">ProjectsWave</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarMenu">
-        <ul class="navbar-nav">
-          <li class="nav-item me-3 mt-2 text-white">👤 <?php echo htmlspecialchars($usuario); ?></li>
-          <li class="nav-item">
-            <a class="nav-link" href="../backend/logout.php">Cerrar Sesión</a>
-          </li>
-        </ul>
-      </div>
+        <a class="navbar-brand" href="#"><i class="fas fa-wave-square"></i> ProjectsWave</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link active" href="home.php">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="../backend/logout.php">Cerrar Sesión</a></li>
+            </ul>
+        </div>
     </div>
-  </nav>
+</nav>
 
   <div class="d-flex">
     <!-- Sidebar -->
     <aside class="sidebar bg-dark text-white p-4 pt-5">
       <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a href="home.php" class="nav-link text-white">🏠 Inicio</a></li>
-        <li class="nav-item mb-2"><a href="crear_proyecto.html" class="nav-link text-white">📝 Crear Proyecto</a></li>
+        <li class="nav-item mb-2"><a href="home.php" class="nav-link text-white">Inicio</a></li>
+        <li class="nav-item mb-2"><a href="crear_proyecto.html" class="nav-link text-white">Crear Proyecto</a></li>
       </ul>
     </aside>
 
     <!-- Main content -->
     <main class="content p-5 w-100">
       <h2 class="mb-4">Crear Nuevo Proyecto</h2>
-      <form method="POST" action="../backend/crear_proyecto.php" class="bg-white shadow rounded p-4">
+      <form method="POST" action="../backend/crear_proyecto.php" enctype="multipart/form-data" class="bg-white shadow rounded p-4">
         <div class="mb-3">
           <label for="nombre" class="form-label">Nombre del Proyecto</label>
           <input type="text" class="form-control" id="nombre" name="nombre" required>
@@ -45,6 +44,10 @@
         <div class="mb-3">
           <label for="descripcion" class="form-label">Descripción</label>
           <textarea class="form-control" id="descripcion" name="descripcion" rows="4"></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="archivo" class="form-label">Archivos adjuntos (puedes subir varios)</label>
+          <input type="file" class="form-control" id="archivo" name="archivos[]" multiple accept=".pdf,.zip,.rar,.jpg,.jpeg,.png,.doc,.docx">
         </div>
         <button type="submit" class="btn btn-success">Guardar Proyecto</button>
         <a href="home.php" class="btn btn-secondary">Cancelar</a>

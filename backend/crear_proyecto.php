@@ -1,27 +1,34 @@
+
 <?php
 require_once 'config.php';
+session_start();
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nombre = $_POST['nombre'] ?? '';
-    $descripcion = $_POST['descripcion'] ?? '';
+$db = new DbConfig();
+$conn = $db->getConnection();
 
-    if (!empty($nombre)) {
-        $db = new DbConfig();
-        $conn = $db->getConnection();
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $nombre = $_POST['nombre'];
+    $descripcion = $_POST['descripcion'];
+    $user_id = $_SESSION['user_id'];
 
-        $sql = "INSERT INTO proyectos (nombre, descripcion) VALUES (:nombre, :descripcion)";
+    if (!empty($_FILES['archivos']['name'][0])) {
+        $sql = "INSERT INTO proyectos (nombre, descripcion, fecha_creacion, user_id) VALUES (?, ?, NOW(), ?)";
         $stmt = $conn->prepare($sql);
-        $stmt->bindParam(':nombre', $nombre);
-        $stmt->bindParam(':descripcion', $descripcion);
+        $stmt->execute([$nombre, $descripcion, $user_id]);
+        $proyecto_id = $conn->lastInsertId();
 
-        if ($stmt->execute()) {
-            header("Location: ../views/home.php");
-            exit();
-        } else {
-            echo "Error al guardar el proyecto.";
+        foreach ($_FILES['archivos']['tmp_name'] as $index => $tmpName) {
+            $archivo_nombre = basename($_FILES['archivos']['name'][$index]);
+            $destino = '../uploads/' . $archivo_nombre;
+            if (move_uploaded_file($tmpName, $destino)) {
+                $sqlArchivo = "INSERT INTO archivos (proyecto_id, nombre_archivo) VALUES (?, ?)";
+                $stmtArchivo = $conn->prepare($sqlArchivo);
+                $stmtArchivo->execute([$proyecto_id, $archivo_nombre]);
+            }
         }
-    } else {
-        echo "El nombre del proyecto es obligatorio.";
     }
+
+    header("Location: ../views/home.php?mensaje=creado");
+    exit();
 }
 ?>
